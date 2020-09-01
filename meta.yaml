@@ -1,0 +1,23 @@
+{% set version = "OMERO-5.4.6-ice36-b87-v1.0.0" %}
+
+package:
+  name: omero-importer-cli
+  version: {{ version }}
+
+source:
+  git_rev: OMERO-5.4.6-ice36-b87-v1.0.0
+  git_url: git@github.com:qbicsoftware/omero-importer-cli.git
+  url: https://github.com/qbicsoftware/omero-importer-cli/releases/download/{{ version }}/omero-importer.jar
+
+build:
+  noarch: generic
+  number: 0
+
+requirements:
+  run:
+    - openjdk
+    - python
+
+test:
+  commands:
+    - omero-importer -h  >/dev/null
